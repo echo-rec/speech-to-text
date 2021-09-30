@@ -1,8 +1,7 @@
 {
-  "name": "speech-to-text",
+  "name": "@echo_rec/speech-to-text",
   "version": "1.0.0",
   "description": "Software para transcrever audio em texto",
-  "main": "index.js",
   "private": false,
   "repository": {
     "type": "git",

@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@echo_rec/speech-to-text.svg?style=flat-square)](http://npm-stat.com/charts.html?package=@echo_rec/speech-to-text)
 
 
-![echo.rec](https://github.com/echo_rec/apm/blob/master/images/logo-dark.png)
+![echo.rec](https://raw.githubusercontent.com/echo-rec/speech-to-text/main/images/logo-dark.png)
 
 Transcrição de voz para texto em clientes com node.js.
 

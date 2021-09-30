@@ -1,6 +1,5 @@
 const FormData = require('form-data');
 const { requestApi } = require('../helpers/request')
-const { logFileNotValid } = require('../helpers/logs')
 
 const URL_VOICE  = "https://api.echo.rec.br"
 

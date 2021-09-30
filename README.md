@@ -13,7 +13,7 @@ Transcrição de voz para texto em clientes com node.js.
 ## Sobre a apm.
 - [Instalação](#instalação)
 - [Configuração](#configuração)
-    - [Transcrição de voz para tetxo.](#transcribe)
+    - [Transcrição de voz para texto.](#transcribe)
 
 
 ## instalação
@@ -32,53 +32,59 @@ $ yarn add @echo_rec/speech-to-text
 
 ## Configuração
 
-Para configuração é necessário acessar o [sistema da echo.rec](https://app.echo.rec.br) e
-criar sua APM, com isso terá o token para integração do sdk.
+Para utilização da ferramenta é necessário acessar o [sistema da echo.rec](https://app.echo.rec.br) e criar o seu token de integração.
 
-Após a instalação do seu sdk no seu ```package.json``` iremos para iniciar o projeto.
+Após a instalação do seu sdk no projeto iremos para iniciar-lo.
 
 ```js
-const reportfyApm = require('@reportfy/apm')
+const echoRec = require('@echo_rec/speech-to-text')
 
-const reportfyApm = reportfyApm.init({
-    key: 'sua_chave_aqui', 
-    env: 'development',
-    accessKey: 'access_key_workspace', 
-    secretKey: 'secret_key_workspace'
+
+const { transcribe } = echoRec({ 
+  token: 'sua_chave_aqui',
+  env: 'seu_ambiente' 
 })
 
 ```
 
-- [x] O campo ```key``` é obrigatório para que seus logs e erros de aplicação sejam enviados para [reportfy](https://reportfy.com.br).
--[x] O campo ```accessKey``` é obrigatório, chave secreta para leitura de dados que contém criptografia da sua área de trabalho(workspace).
--[x] O campo ```accessKey``` é obrigatório, chave secreta para leitura de dados que contém criptografia da sua área de trabalho(workspace).
-- [x] O campo ```env``` é opcional, ele serve para identificar os **logs, issues, handler e tracing** do seu ambiente. Por **default** a ````.env ```` é development.
-- [x] O campo ```tracing``` é opcional, ele serve para identificar realizar **tracing http** da sua api. Por **default** a ````tracing ```` é **false**.
+- [x] O campo ```token``` é obrigatório para identificação da sua aplicação no [echo.rec](https://app.echo.rec.br).
+- [x] O campo ```env``` é opcional, ele serve para identificar o ambiente da sua maquina, a ````.env ```` por padrão é ```development.```
 
 
+## transcribe
 
+Para que o [echo.rec](https://app.echo.rec.br) transcreva em texto o seu áudio, é necessário que envie o arquivo dos tipo:
 
-## Api
+ - **mp3**
+ - **ogg**
 
-Para que o [reportfy](https://reportfy.com.br) escute todas as request do [framework express](https://expressjs.com/) necessita da
-alocação do ```captureHandler``` como middleware, segue o exemplo abaixo:
+Segue o exemplo usando o sdk para transcrição do audio:
 
 ```js
-const express = require('express')
-const reportfyApm = require('@reportfy/apm')
+const path = require('path')
+const echoRec = require('@echo_rec/speech-to-text')
 
-const app = express()
-const reportfyApm = reportfyApm.init({ 
-  key: 'sua_chave_aqui', 
-  env: 'development',
-  accessKey: 'access_key_workspace',
-  secretKey: 'secret_key_workspace'
+const { transcribe } = echoRec({
+  token: 'sua_chave_aqui',
+  env: 'seu_ambiente'
 })
 
-app.use(express.json({}))
-app.use(reportfyApm.captureHandler)
+const file = path.join(__dirname, './', 'meu_audio_aqui.mp3')
 
-const port = process.env.PORT || 3000
 
-app.listen(3000, () => console.log('Aplicão no ar: http://localhost:3000'))
+const result = await transcribe(file)
+
+console.log(result)
 ```
+
+Saída no terminal.
+
+````json
+{
+  "data": {
+    "id": "d128aec0-0607-444e-a269-5ea98c1ffbda",
+    "message": "Jardel te amo junior!"
+  },
+  "status": 201
+}
+````

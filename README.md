@@ -16,7 +16,7 @@ Transcrição de voz para texto em clientes com node.js.
     - [Transcrição de voz para texto.](#transcribe)
 
 
-## instalação
+## Instalação
 
 Usando npm:
 
@@ -32,13 +32,12 @@ $ yarn add @echo_rec/speech-to-text
 
 ## Configuração
 
-Para utilização da ferramenta é necessário acessar o [sistema da echo.rec](https://app.echo.rec.br) e criar o seu token de integração.
+Para utilização da ferramenta, é necessário acessar o [sistema da echo.rec](https://app.echo.rec.br) e criar o seu token de integração.
 
-Após a instalação do seu sdk no projeto iremos para iniciar-lo.
+Após a instalação do seu sdk no projeto, segue o exemplo para iniciar a instância da biblioteca.
 
 ```js
 const echoRec = require('@echo_rec/speech-to-text')
-
 
 const { transcribe } = echoRec({ 
   token: 'sua_chave_aqui',
@@ -83,7 +82,7 @@ Saída no terminal.
 {
   "data": {
     "id": "d128aec0-0607-444e-a269-5ea98c1ffbda",
-    "message": "Jardel te amo junior!"
+    "message": "Sua transcrição aqui em texto!"
   },
   "status": 201
 }

@@ -1,23 +1,19 @@
-# @reportfy/apm
+# @echo_rec/speech-to-text
 [![npm version](https://img.shields.io/npm/v/@echo_rec/speech-to-text.svg?style=flat-square)](https://www.npmjs.org/package/@echo_rec/speech-to-text)
 [![install size](https://packagephobia.now.sh/badge?p=@echo_rec/speech-to-text)](https://packagephobia.now.sh/result?p=@echo_rec/speech-to-text)
 [![npm downloads](https://img.shields.io/npm/dm/@echo_rec/speech-to-text.svg?style=flat-square)](http://npm-stat.com/charts.html?package=@echo_rec/speech-to-text)
 
 
-![reportfy](https://github.com/echo_rec/apm/blob/master/images/reportfy.svg)
+![echo.rec](https://github.com/echo_rec/apm/blob/master/images/logo-dark.png)
 
+Transcrição de voz para texto em clientes com node.js.
 
-Apm para clientes express para uso com node.js.
-
-> Sobre reportfy: [clique aqui](https://reportfy.com.br/)
+> Sobre echo.rec [clique aqui](https://app.echo.rec.br).
 
 ## Sobre a apm.
 - [Instalação](#instalação)
 - [Configuração](#configuração)
-    - [Chamadas de api da aplicação.](#api)
-    - [Logs de aplicação](#logs)
-    - [Interceptação de integração](#intercept)
-    - [Erros costomizado](#custom)
+    - [Transcrição de voz para tetxo.](#transcribe)
 
 
 ## instalação
@@ -25,18 +21,18 @@ Apm para clientes express para uso com node.js.
 Usando npm:
 
 ```bash
-$ npm install @reportfy/apm --save
+$ npm i @echo_rec/speech-to-text --save
 ```
 
 Usando yarn:
 
 ```bash
-$ yarn add @reportfy/apm
+$ yarn add @echo_rec/speech-to-text
 ```
 
 ## Configuração
 
-Para configuração é necessário acessar o [sistema da reporfy](https://app.reportfy.com.br) e
+Para configuração é necessário acessar o [sistema da echo.rec](https://app.echo.rec.br) e
 criar sua APM, com isso terá o token para integração do sdk.
 
 Após a instalação do seu sdk no seu ```package.json``` iremos para iniciar o projeto.
